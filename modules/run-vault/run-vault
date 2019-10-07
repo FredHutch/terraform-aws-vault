@@ -127,6 +127,7 @@ listener "tcp" {
   cluster_address = "0.0.0.0:$cluster_port"
   tls_cert_file   = "$tls_cert_file"
   tls_key_file    = "$tls_key_file"
+  x_forwarded_for_authorized_addrs = "${VAULT_FORWARDERS}"
 }\n
 seal "awskms" {
  region = "us-west-2"
